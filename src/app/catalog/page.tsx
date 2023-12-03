@@ -20,7 +20,7 @@ const Page = async () => {
     const data = await getData()
     return (
         <main>
-            <BrandFilter props={data}/>
+            <BrandFilter/>
             <section className={'py-10 px-4'}>
                 <div className={'px-4 container mx-auto'}>
                     <h2 className={'text-4xl font-bold'}>Каталог</h2>
