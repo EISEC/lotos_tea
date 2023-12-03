@@ -50,7 +50,7 @@ const Catalog = async () => {
                                     <span className="block opacity-75 -mb-1">{el.cat[0].name}</span>
                                     <div className="flex justify-between flex flex-col gap-2">
                                         <span className="block font-semibold text-xl">{el.title}</span>
-                                        <Link href={`/${el.slug}`}
+                                        <Link href={`/catalog/${el.slug}`}
                                               className="block bg-white rounded-full text-red-600 text-xs font-bold px-3 py-2 leading-none text-center"> подробнее </Link>
                                     </div>
                                 </div>

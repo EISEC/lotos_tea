@@ -140,37 +140,29 @@ const Footer = () => {
 
                             <ul className="mt-8 space-y-4 text-sm">
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Company History
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Meet the Team
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Employee Handbook
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Careers
                                     </a>
                                 </li>
@@ -182,37 +174,29 @@ const Footer = () => {
 
                             <ul className="mt-8 space-y-4 text-sm">
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Web Development
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Web Design
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Marketing
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Google Ads
                                     </a>
                                 </li>
@@ -224,44 +208,19 @@ const Footer = () => {
 
                             <ul className="mt-8 space-y-4 text-sm">
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         FAQs
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="text-gray-700 transition hover:text-gray-700/75"
-                                        href="/"
-                                    >
+                                    <a className="text-gray-700 transition hover:text-gray-700/75"
+                                        href="/">
                                         Support
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a
-                                        className="group flex justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                                        href="/"
-                                    >
-                <span
-                    className="text-gray-700 transition group-hover:text-gray-700/75"
-                >
-                  Live Chat
-                </span>
-
-                                        <span className="relative flex h-2 w-2">
-                  <span
-                      className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"
-                  ></span>
-                  <span
-                      className="relative inline-flex h-2 w-2 rounded-full bg-teal-500"
-                  ></span>
-                </span>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
 
@@ -270,10 +229,8 @@ const Footer = () => {
 
                             <ul className="mt-8 space-y-4 text-sm">
                                 <li>
-                                    <a
-                                        className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                                        href="/"
-                                    >
+                                    <a className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+                                        href="/">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             className="h-5 w-5 shrink-0 text-gray-900"
@@ -294,10 +251,8 @@ const Footer = () => {
                                 </li>
 
                                 <li>
-                                    <a
-                                        className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                                        href="/"
-                                    >
+                                    <a className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+                                        href="/">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             className="h-5 w-5 shrink-0 text-gray-900"
@@ -317,9 +272,7 @@ const Footer = () => {
                                     </a>
                                 </li>
 
-                                <li
-                                    className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                                >
+                                <li className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="h-5 w-5 shrink-0 text-gray-900"
@@ -354,19 +307,13 @@ const Footer = () => {
                         <p className="text-sm text-gray-500">
                             <span className="block sm:inline">All rights reserved.</span>
 
-                            <a
-                                className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
-                                href="/"
-                            >
+                            <a className="inline-block text-teal-600 underline transition hover:text-teal-600/75" href="/">
                                 Terms & Conditions
                             </a>
 
                             <span>&middot;</span>
 
-                            <a
-                                className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
-                                href="/"
-                            >
+                            <a className="inline-block text-teal-600 underline transition hover:text-teal-600/75" href="/">
                                 Privacy Policy
                             </a>
                         </p>
