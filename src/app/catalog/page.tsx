@@ -32,7 +32,7 @@ const Page = async () => {
                 </div>
                 <div className="py-4 grid grid-cols-4 items-center justify-center container mx-auto">
                     {
-                        data.map((el) => {
+                        data.map((el:any) => {
                             return (
                                 <div
                                     key={el.id}

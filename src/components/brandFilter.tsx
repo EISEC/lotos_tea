@@ -21,7 +21,7 @@ const BrandFilter = async () => {
         <section className={'px-6 py-6'}>
             <div className={'container mx-auto grid grid-cols-5 gap-20'}>
                 {
-                    brands.map((el) => {
+                    brands.map((el:any) => {
                         return (
                             <Link href={`/catalog/brends/${el.slug}`} key={el.id}
                                   className={'relative overflow-hidden rounded-xl'}>

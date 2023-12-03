@@ -28,7 +28,7 @@ const Catalog = async () => {
             </div>
             <div className="py-4 grid grid-cols-4 items-center justify-center container mx-auto">
                 {
-                    data.slice(0, 8).map((el) => {
+                    data.slice(0, 8).map((el:any) => {
                         return (
                             <div
                                 key={el.id}
