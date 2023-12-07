@@ -10,7 +10,7 @@ const Header = () => {
                 <Link href={'/'} className="logo flex flex-row items-center gap-[25px]">
                     <img src="/img/logo-femrich.png" className={'max-h-[75px]'} alt=""/>
                 </Link>
-                <div>
+                <div className={'hidden md:block'}>
                     <nav>
                         <ul className={'flex flex-row gap-2 text-md uppercase font-medium'}>
                             <li className={'hover:text-white hover:bg-gradient-to-r hover:from-red-300 hover:to-red-600 px-[10px] hover:rounded-md hover:font-bold'}>
