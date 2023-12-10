@@ -1,5 +1,6 @@
 'use server'
 import React from 'react';
+import Image from "next/image";
 
 async function getData(slug: string) {
     const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/product/${slug}`, {next: {revalidate: 0}})
@@ -17,11 +18,18 @@ const Page = async ({params}: { params: { slug: string } }) => {
     return (
         <section className="bg-white">
             <div className="container px-6 py-10 mx-auto">
-                <div className="flex flex-col md:flex-row gap-5 md:items-center md:justify-center w-full">
-                    <img className=" lg:mx-6 h-96 rounded-lg lg:h-[36rem]"
-                         src={data[0].img}
-                         alt=""/>
-                    <div className="mt-8 lg:w-1/2 lg:px-6 lg:mt-0">
+                <div className="flex flex-col md:flex-row relative gap-5 md:items-center md:justify-center w-full">
+                    <div className={'relative h-full'}>
+                        <Image className="lg:mx-6 h-96 rounded-lg lg:h-[36rem]"
+                               width={500}
+                               height={500}
+                               style={{objectFit: "contain"}}
+                               loading="lazy"
+                               sizes="(max-width: 768px) 100vw, 33vw"
+                               src={data[0].img}
+                               alt=""/>
+                    </div>
+                    <div className="mt-8 w-[fit-content] lg:px-6 lg:mt-0">
                         <h1 className="text-2xl font-semibold text-gray-800  lg:text-3xl lg:w-96">
                             {data[0].title}
                         </h1>
@@ -37,7 +45,8 @@ const Page = async ({params}: { params: { slug: string } }) => {
                             <li><b>Сорт</b>: {data[0].acf.sort}</li>
                         </ul>
 
-                        <button className={'px-3 py-1 my-3 bg-gradient-to-r from-green-700 to-green-600 text-xl text-white rounded-md shadow-md'}>
+                        <button
+                            className={'px-3 py-1 my-3 bg-gradient-to-r from-green-700 to-green-600 text-xl text-white rounded-md shadow-md'}>
                             Обратная связь
                         </button>
                     </div>

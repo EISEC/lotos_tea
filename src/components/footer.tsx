@@ -2,6 +2,7 @@ import React from 'react';
 import Link from "next/link";
 
 const Footer = () => {
+    let today: Date = new Date()
     return (
         <footer className="bg-white">
             <hr/>
@@ -160,20 +161,20 @@ const Footer = () => {
                             <span className="block sm:inline">All rights reserved.</span>
 
                             <Link className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
-                               href="/privacy">
+                                  href="/privacy">
                                 Политика конфиденциальности
                             </Link>
 
-                            <span> и </span>
+                            {/*<span> и </span>*/}
 
-                            <a className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
-                               href="/">
-                                Cookie
-                            </a>
+                            {/*<a className="inline-block text-teal-600 underline transition hover:text-teal-600/75"*/}
+                            {/*   href="/">*/}
+                            {/*    Cookie*/}
+                            {/*</a>*/}
                         </p>
 
                         <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-                            &copy; 2023 ООО &quot;ЛОТОС&quot;
+                            &copy; {today.getFullYear()} ООО &quot;ЛОТОС&quot;
                         </p>
                     </div>
                 </div>
