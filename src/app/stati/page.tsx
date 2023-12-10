@@ -3,7 +3,7 @@ import React from "react";
 import PostCard from "@/components/postCard";
 
 async function getData() {
-    const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/posts/all`, {cache: 'no-store'})
+    const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/posts/all`, {next: {revalidate: 0}})
     const data = res.json()
     return data
 }

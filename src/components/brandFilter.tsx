@@ -3,7 +3,7 @@ import React from 'react';
 import Link from "next/link";
 
 async function getData() {
-    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/brands/all', {cache: 'no-store'})
+    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/brands/all', {next: {revalidate: 0}})
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 

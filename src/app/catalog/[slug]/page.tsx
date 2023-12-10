@@ -2,7 +2,7 @@
 import React from 'react';
 
 async function getData(slug: string) {
-    const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/product/${slug}`, {cache: 'no-store'})
+    const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/product/${slug}`, {next: {revalidate: 0}})
 
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary

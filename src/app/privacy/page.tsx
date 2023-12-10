@@ -1,7 +1,8 @@
+'use server'
 import React from 'react';
 
 async function getData() {
-    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/pk', {cache: 'no-store'})
+    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/pk', {next: {revalidate: 0}})
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
@@ -12,6 +13,7 @@ async function getData() {
 
     return res.json()
 }
+
 const Page = async () => {
     const data = await getData()
     return (

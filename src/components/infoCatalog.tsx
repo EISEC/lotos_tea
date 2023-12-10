@@ -1,7 +1,7 @@
 import React from 'react';
 
 async function getData() {
-    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/catalog', {cache: 'no-store'})
+    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/catalog', {next: {revalidate: 0}})
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 

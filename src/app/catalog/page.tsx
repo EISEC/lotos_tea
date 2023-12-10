@@ -1,12 +1,11 @@
 'use server'
 import React from 'react';
-import Link from "next/link";
 import BrandFilter from "@/components/brandFilter";
 import ProductCard from "@/components/productCard";
 import InfoCatalog from "@/components/infoCatalog";
 
 async function getData() {
-    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/products/all', {cache: 'no-store'})
+    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/products/all', {next: {revalidate: 0}})
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
