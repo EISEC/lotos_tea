@@ -16,7 +16,7 @@ const Cookie = async () => {
     } else {
         return (
             <div
-                className={`fixed justify-center px-4 py-4 mx-auto lg:py-10 z-20 bottom-1 w-full rounded-md overflow-hidden`}>
+                className={`fixed hidden justify-center px-4 py-4 mx-auto lg:py-10 z-20 bottom-1 w-full rounded-md overflow-hidden`}>
                 <div className="relative p-6 bg-stone-100 border-l-4 border-yellow-500"
                      role="alert">
                     <div className="flex">
