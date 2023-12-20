@@ -33,15 +33,14 @@ const Page = async ({params}: { params: { slug: string } }) => {
                         <h1 className="text-2xl font-semibold text-gray-800  lg:text-3xl lg:w-96">
                             {data[0].title}
                         </h1>
-                        <p className="max-w-lg mt-6 text-gray-500 ">
-                            {data[0].content}
-                        </p>
+                        <div className="max-w-lg mt-6 text-gray-500"
+                             dangerouslySetInnerHTML={{__html: data[0].content}}/>
                         <h3 className="mt-6 text-lg font-medium text-green-500">{data[0].proizvoditel[0]}</h3>
                         <ul className="text-gray-600 ">
                             <li><b>Упаковка</b>: {data[0].acf.upakovka}</li>
                             <li><b>Класс</b>: {data[0].acf.klass}</li>
-                            <li><b>Ароматизация</b>: {data[0].acf['kol-vo_v_upakovke']}</li>
-                            <li><b>Количество в упаковке</b>: {data[0].acf.aromatizacziya}</li>
+                            <li><b>Ароматизация</b>: {data[0].acf.aromatizacziya}</li>
+                            <li><b>Количество в упаковке</b>: {data[0].acf['kol-vo_v_upakovke']}</li>
                             <li><b>Сорт</b>: {data[0].acf.sort}</li>
                         </ul>
 
