@@ -12,10 +12,6 @@
     font-family: 'Lilita One', sans-serif;
 }
 
-.bg_hero {
-    background-image: url("/img/tea.jpg");
-}
-
 .newStyle {
     background: radial-gradient(black, transparent 60%);
     transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1);

@@ -15,7 +15,7 @@ async function getData() {
     return res.json()
 }
 
-const BrandFilter = async () => {
+const Page = async () => {
     const brands = await getData()
     return (
         <section className={'px-6 py-6'}>
@@ -41,4 +41,4 @@ const BrandFilter = async () => {
     );
 };
 
-export default BrandFilter;
+export default Page;
