@@ -34,7 +34,7 @@ const Page = async ({params}: { params: { slug: string } }) => {
                             {data[0].title}
                         </h1>
                         <div className="max-w-lg mt-6 text-gray-500"
-                             dangerouslySetInnerHTML={{__html: data[0].content}}/>
+                             dangerouslySetInnerHTML={{__html: data[0].kratkoe_opisanie}}/>
                         <h3 className="mt-6 text-lg font-medium text-green-500">{data[0].proizvoditel[0]}</h3>
                         <ul className="text-gray-600 ">
                             <li><b>Упаковка</b>: {data[0].acf.upakovka}</li>

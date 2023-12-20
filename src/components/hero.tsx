@@ -18,14 +18,9 @@ const Hero = async () => {
     const data = await getData()
     const img = data[0]['img']
     return (
-        <section
-            className={`relative bg_hero bg-cover bg-center bg-no-repeat`}
-            style={{backgroundImage: "url(" + img + ")"}}>
+        <section>
             <div
-                className="absolute inset-0 bg-gradient-to-r from-[40%] from-white/95 via-white/70 to transparent"></div>
-
-            <div
-                className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-[50vh] lg:items-center lg:px-8">
+                className="relative container mx-auto w-full px-4 py-32 sm:px-6 lg:flex lg:h-[50vh] lg:items-center lg:px-8 gap-10 justify-between">
                 <div className="max-w-xl text-left">
                     <h1 className="text-3xl font-extrabold sm:text-5xl" dangerouslySetInnerHTML={{__html: data[0]['block1'][0]['zagolovok_na_sekczii']}}/>
 
@@ -33,6 +28,7 @@ const Hero = async () => {
                         {data[0]['block1'][0]['opisanie_sekczii']}
                     </p>
                 </div>
+                <img src={img} alt=""/>
             </div>
         </section>
     );
