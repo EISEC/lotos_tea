@@ -1,6 +1,7 @@
 'use server'
 import React from 'react';
 import {SlDirections, SlMap, SlPhone} from "react-icons/sl";
+import MapScript from "@/components/mapScript";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/contacts', {next: {revalidate: 0}})
@@ -30,9 +31,8 @@ const Page = async () => {
                             <div dangerouslySetInnerHTML={{__html: data[0].kontakti}}/>
                         </div>
                         <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
-                            <div className="max-w-lg mx-auto overflow-hidden rounded-lg md:ml-0">
-                                <div dangerouslySetInnerHTML={{__html: data[0].map}}
-                                     className="object-cover w-full h-96"/>
+                            <div className="w-full overflow-hidden rounded-lg md:ml-0">
+                                <MapScript map={data[0].map}/>
                             </div>
                         </div>
                     </div>
