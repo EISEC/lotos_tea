@@ -1,17 +1,14 @@
 'use server'
 import React from 'react';
-import ProductCard from "@/components/productCard";
+import HomeProductCards from "@/components/homeProductSlider";
+import {Metadata} from "next";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/products/all', {next: {revalidate: 0}})
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
-
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
         throw new Error('Failed to fetch data')
     }
-
     return res.json()
 }
 
@@ -27,14 +24,8 @@ const Catalog = async () => {
                     важную роль в формировании своевременного выполнения сверхзадачи.</p>
             </div>
             <div
-                className="py-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 items-center justify-center container mx-auto">
-                {
-                    data.slice(0, 8).map((el: any) => {
-                        return (
-                            <ProductCard key={el.id} el={el}/>
-                        )
-                    })
-                }
+                className="py-4 container mx-auto">
+                <HomeProductCards dta={data}/>
             </div>
         </section>
     );

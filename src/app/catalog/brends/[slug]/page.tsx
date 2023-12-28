@@ -1,6 +1,7 @@
 'use server'
 import React from 'react';
 import ProductCard from "@/components/productCard";
+import {Metadata} from "next";
 
 async function getData(slug: string) {
     const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/brend/${slug}`, {next: {revalidate: 0}})
@@ -11,6 +12,22 @@ async function getData(slug: string) {
     }
 
     return res.json()
+}
+
+export async function generateMetadata({params}: { params: { slug: string } }): Promise<Metadata> {
+    const data = await getData(params.slug)
+    return {
+        title: `${data[1].name} | Компания «Лотос»`,
+        keywords: 'чай, оптом, москва, питер, спб, купить, заказать',
+        description: data[1]['description'],
+        openGraph: {
+            title: `${data[1].name} | Компания «Лотос»`,
+            description: `${data[1].name} | ${data[1]['description']}. Оптом напрямую из Шри-ланки `,
+            url: `https://lotos-tea.ru/catalog/brends/${params.slug}`,
+            type: "website",
+            siteName: "Компания «Лотос»",
+        },
+    }
 }
 
 const Page = async ({params}: { params: { slug: string } }) => {

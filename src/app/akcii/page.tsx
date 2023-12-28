@@ -1,5 +1,6 @@
 'use server'
 import React from 'react';
+import {Metadata} from "next";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/akcii', {next: {revalidate: 0}})
@@ -12,6 +13,23 @@ async function getData() {
     }
 
     return res.json()
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+    const data = await getData()
+    const el = data[0]
+    return {
+        title: `${el.title} | Компания «Лотос»`,
+        keywords: 'чай, оптом, москва, питер, спб, купить, заказать',
+        description: el.content.replace(/(<([^>]+)>)/ig, '').substring(0, 120),
+        openGraph: {
+            title: `${el.title} | Компания «Лотос»`,
+            description: `${el.content.replace(/(<([^>]+)>)/ig, '').substring(0, 120)}`,
+            url: `https://lotos-tea.ru/akcii`,
+            type: "website",
+            siteName: "Компания «Лотос»",
+        },
+    }
 }
 
 const Page = async () => {

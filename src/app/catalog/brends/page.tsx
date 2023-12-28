@@ -1,6 +1,7 @@
 'use server'
 import React from 'react';
 import Link from "next/link";
+import {Metadata} from "next";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/brands/all', {next: {revalidate: 0}})
@@ -13,6 +14,21 @@ async function getData() {
     }
 
     return res.json()
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: `Бренды с которыми мы работаем | Компания «Лотос»`,
+        keywords: 'чай, оптом, москва, питер, спб, купить, заказать',
+        description: `Бренды с которыми мы работаем, чай из Шри-ланки, оптом. От компании Лотос.`,
+        openGraph: {
+            title: `Бренды с которыми мы работаем | Компания «Лотос»`,
+            description: `Бренды с которыми мы работаем, чай из Шри-ланки, оптом. От компании Лотос.`,
+            url: `https://lotos-tea.ru/brends`,
+            type: "website",
+            siteName: "Компания «Лотос»",
+        },
+    }
 }
 
 const Page = async () => {
