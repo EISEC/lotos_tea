@@ -32,7 +32,7 @@ const HomeProductCards = ({dta}: any) => {
             {
                 dta.slice(0, 8).map((el: any) => {
                     return (
-                        <SwiperSlide key={el.id} className={'mt-8 px-4'}>
+                        <SwiperSlide key={el.id} className={'mt-8 px-4 !h-auto'}>
                             <div
                                 className="h-full w-full flex flex-col justify-center relative overflow-hidden border-2 border-emerald-600 rounded-lg shadow-md">
                                 <div className="relative pt-3 flex items-center justify-center">
