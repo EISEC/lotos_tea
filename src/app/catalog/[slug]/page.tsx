@@ -3,6 +3,7 @@ import React from 'react';
 import Image from "next/image";
 import HomeProductCards from "@/components/homeProductSlider";
 import {Metadata} from "next";
+import ModalWindow from "@/components/modalWindow";
 
 async function getData(slug: string) {
     const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/product/${slug}`, {next: {revalidate: 0}})
@@ -25,13 +26,14 @@ async function getProducts() {
 export async function generateMetadata({params}: { params: { slug: string } }): Promise<Metadata> {
     const data = await getData(params.slug)
     const el = data[0]
+    const desc = el.acf.kratkoe_opisanie === '' ? 'Нет описания' : el.acf.kratkoe_opisanie
     return {
         title: `${el.title} | Компания «Лотос»`,
         keywords: 'чай, оптом, москва, питер, спб, купить, заказать',
-        description: el.acf.kratkoe_opisanie,
+        description: desc,
         openGraph: {
             title: `${el.title} | Компания «Лотос»`,
-            description: `${el.acf.kratkoe_opisanie} оптом напрямую из Шри-ланки `,
+            description: `${desc} оптом напрямую из Шри-ланки `,
             url: `https://lotos-tea.ru/catalog/${el.slug}`,
             type: "website",
             images: [el.img],
@@ -43,6 +45,8 @@ export async function generateMetadata({params}: { params: { slug: string } }): 
 const Page = async ({params}: { params: { slug: string } }) => {
     const data = await getData(params.slug)
     const products = await getProducts()
+    const otsutstvuet = 'нет описания'
+    const opiska: any = data[0].acf.kratkoe_opisanie === undefined ? otsutstvuet : data[0].acf.kratkoe_opisanie
     return (
         <>
             <section className="bg-white">
@@ -63,7 +67,7 @@ const Page = async ({params}: { params: { slug: string } }) => {
                                 {data[0].title}
                             </h1>
                             <div className="max-w-lg mt-6 text-gray-500"
-                                 dangerouslySetInnerHTML={{__html: data[0].acf.kratkoe_opisanie}}/>
+                                 dangerouslySetInnerHTML={{__html: opiska}}/>
                             <h3 className="mt-6 text-lg font-medium text-green-500">{data[0].proizvoditel[0]}</h3>
                             <ul className="text-gray-600 ">
                                 <li><b>Упаковка</b>: {data[0].acf.upakovka}</li>
@@ -73,10 +77,7 @@ const Page = async ({params}: { params: { slug: string } }) => {
                                 <li><b>Сорт</b>: {data[0].acf.sort}</li>
                             </ul>
 
-                            <button
-                                className={'px-3 py-1 my-3 bg-gradient-to-r from-green-700 to-green-600 text-xl text-white rounded-md shadow-md'}>
-                                Обратная связь
-                            </button>
+                            <ModalWindow prod={data[0].title}/>
                         </div>
                     </div>
                 </div>
