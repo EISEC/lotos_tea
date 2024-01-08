@@ -1,9 +1,8 @@
 'use server'
 import React from 'react';
 import BrandFilter from "@/components/brandFilter";
-import ProductCard from "@/components/productCard";
-import InfoCatalog from "@/components/infoCatalog";
 import {Metadata} from "next";
+import CatFilter from "@/components/catFilter";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/products/all', {next: {revalidate: 0}})
@@ -32,24 +31,17 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const Page = async () => {
     const data = await getData()
+    let caty: any = []
+    //@ts-ignore
+    for (let i = 0; i < data.length; i++) {
+        if (!caty.includes(data[i].cat[0].name)) {
+            caty.push(data[i].cat[0].name)
+        }
+    }
     return (
         <main>
             <BrandFilter/>
-            <section className={'py-10 px-4'}>
-                <div className={'px-6 container mx-auto'}>
-                    <InfoCatalog/>
-                </div>
-                <div
-                    className="py-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 items-center justify-center container mx-auto">
-                    {
-                        data.map((el: any) => {
-                            return (
-                                <ProductCard key={el.id} el={el}/>
-                            )
-                        })
-                    }
-                </div>
-            </section>
+            <CatFilter data={data} caty={caty}/>
         </main>
     );
 };
