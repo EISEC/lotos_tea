@@ -1,13 +1,32 @@
 'use server'
 import React from 'react';
-import BrandFilter from "@/components/brandFilter";
 import {Metadata} from "next";
 import CatFilter from "@/components/catFilter";
+import HomeBrend from "@/components/homeBrend";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/products/all', {next: {revalidate: 0}})
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+    return res.json()
+}
+
+async function getCat() {
+    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/cat/all', {next: {revalidate: 0}})
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+    return res.json()
+}
+
+async function getInfo() {
+    const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/catalog', {next: {revalidate: 0}})
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
 
     if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
         throw new Error('Failed to fetch data')
     }
 
@@ -31,17 +50,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const Page = async () => {
     const data = await getData()
-    let caty: any = []
-    //@ts-ignore
-    for (let i = 0; i < data.length; i++) {
-        if (!caty.includes(data[i].cat[0].name)) {
-            caty.push(data[i].cat[0].name)
-        }
-    }
+    const caty = await getCat()
+    const info = await  getInfo()
     return (
         <main>
-            <BrandFilter/>
-            <CatFilter data={data} caty={caty}/>
+            <HomeBrend/>
+            <CatFilter data={data} caty={caty} info={info}/>
         </main>
     );
 };

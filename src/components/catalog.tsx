@@ -2,6 +2,7 @@
 import React from 'react';
 import HomeProductCards from "@/components/homeProductSlider";
 import {Metadata} from "next";
+import Link from "next/link";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/products/all', {next: {revalidate: 0}})
@@ -26,6 +27,12 @@ const Catalog = async () => {
             <div
                 className="py-4 container mx-auto">
                 <HomeProductCards dta={data}/>
+            </div>
+            <div
+                className="py-4 container mx-auto text-center">
+                <Link className={'bg-orange-500 text-green-50 px-3 py-2 text-xl rounded shadow-xl hover:opacity-[0.9]'} href={'/catalog'}>
+                    Весь ассортимент
+                </Link>
             </div>
         </section>
     );

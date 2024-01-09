@@ -3,6 +3,7 @@ import './globals.css'
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Cookie from "@/components/cookie";
+import Preloadering from "@/components/preloadering";
 
 export const metadata: Metadata = {
     title: 'Чай оптом от компании «Лотос» в Москве',
@@ -21,6 +22,7 @@ export default function RootLayout({
         {children}
         <Cookie/>
         <Footer/>
+        <Preloadering/>
         </body>
         </html>
     )
