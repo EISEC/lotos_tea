@@ -7,9 +7,9 @@ const Header = () => {
     return (
         <header className={'sticky min-h-[45px] w-full px-[20px] py-[10px] shadow-lg relative overflow-hidden z-10'}>
             <div className={'flex flex-row gap-5 justify-between items-center z-10 container mx-auto'}>
-                <Link href={'/'} className="logo flex flex-row items-center gap-[25px]">
+                <a href={'/'} className="logo flex flex-row items-center gap-[25px]">
                     <img src="/img/logo-femrich.png" className={'max-h-[75px]'} alt=""/>
-                </Link>
+                </a>
                 <div className={'hidden md:block'}>
                     <nav>
                         <ul className={'flex flex-row gap-2 text-md uppercase font-medium'}>
