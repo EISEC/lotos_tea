@@ -6,7 +6,7 @@ import InputMask from "react-input-mask";
 
 import {useForm} from "react-hook-form";
 
-const ModalWindow = ({prod}: any) => {
+const ModalPrice = () => {
     const [modal, setModal] = useState(false)
     const [sucess, setSucess] = useState(false)
     const {register, handleSubmit, reset, formState: {errors}, control} = useForm();
@@ -40,7 +40,7 @@ const ModalWindow = ({prod}: any) => {
             <button
                 onClick={OpenModal}
                 className={'px-3 py-1 my-3 bg-gradient-to-r from-green-700 to-green-600 text-xl text-white rounded-md shadow-md'}>
-                Обратная связь
+                Запросить прайс
             </button>
             {modal ? <div
                 className={'fixed min-h-full min-w-full bg-black/75 top-0 left-0 z-50 flex items-center justify-center'}>
@@ -68,10 +68,14 @@ const ModalWindow = ({prod}: any) => {
                                 required: true,
                             })}/>
                         </div>
-                        <input className={'hidden'} type="text" {...register("prod", {
-                            required: true,
-                            maxLength: 80
-                        })} value={prod}/>
+                        <div className="relative">
+                            <input type="email"
+                                   className="border-2 text-black peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary"
+
+                                   {...register("mail", {
+                                       required: true,
+                                   })} placeholder={'info@pochta.ru'}/>
+                        </div>
                         <button className={'text-white bg-green-500 py-2'}>Отправить</button>
                     </form> : <div>
                         <h3>Спасибо за обращение!</h3>
@@ -83,4 +87,4 @@ const ModalWindow = ({prod}: any) => {
     );
 };
 
-export default ModalWindow;
+export default ModalPrice;

@@ -3,6 +3,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import ProductCard from "@/components/productCard";
 import InfoCatalog from "@/components/infoCatalog";
 import FiltrButton from "@/components/filtrButton";
+import ModalPrice from "@/components/modalPrice";
 
 const CatFilter = ({data, caty, info}: any) => {
     const [filtered, setFiltered] = useState([])
@@ -20,6 +21,9 @@ const CatFilter = ({data, caty, info}: any) => {
                     <InfoCatalog data={info}/>
                 </div>
                 <div className={'px-6 container mx-auto text-lg mt-3'}>
+                    <div className={'py-4'}>
+                        <ModalPrice/>
+                    </div>
                     <strong>Найдено товаров: {filtered.length}</strong>
                 </div>
                 <div

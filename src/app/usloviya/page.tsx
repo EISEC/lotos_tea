@@ -1,6 +1,7 @@
 'use server'
 import React from 'react';
 import {Metadata} from "next";
+import ModalPrice from "@/components/modalPrice";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/us', {next: {revalidate: 0}})
@@ -50,6 +51,9 @@ const Page = async () => {
                                      className="object-cover w-full h-96"/>
                             </div>
                         </div>
+                    </div>
+                    <div className={'px-4 py-4'}>
+                        <ModalPrice/>
                     </div>
                     <div className="px-4 flex flex-col gap-[20px] text-md md:text-lg"
                          dangerouslySetInnerHTML={{__html: data[0].content}}/>

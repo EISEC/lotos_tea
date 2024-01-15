@@ -1,6 +1,7 @@
 'use server'
 import React from 'react';
 import Image from "next/image";
+import ModalPrice from "@/components/modalPrice";
 
 async function getData() {
     const res = await fetch('https://ifuw.ru/lotos/wp-json/api/page/home', {next: {revalidate: 0}})
@@ -29,6 +30,7 @@ const Hero = async () => {
                     <p className="mt-4 max-w-lg sm:text-xl/relaxed">
                         {data[0]['block1'][0]['opisanie_sekczii']}
                     </p>
+                    <ModalPrice/>
                 </div>
                 <div className={'relative h-full w-full flex items-end justify-end'}>
                     <Image src={img} fill={true}
