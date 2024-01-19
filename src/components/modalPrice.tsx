@@ -76,6 +76,22 @@ const ModalPrice = () => {
                                        required: true,
                                    })} placeholder={'info@pochta.ru'}/>
                         </div>
+                        <div className="relative">
+                            <input type="text"
+                                   className="border-2 text-black peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary"
+
+                                   {...register("inn", {
+                                       required: true,
+                                   })} placeholder={'ИНН'}/>
+                        </div>
+                        <div className="relative">
+                            <input type="text"
+                                   className="border-2 text-black peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary"
+
+                                   {...register("org", {
+                                       required: true,
+                                   })} placeholder={'Наименование организации'}/>
+                        </div>
                         <button className={'text-white bg-green-500 py-2'}>Отправить</button>
                     </form> : <div>
                         <h3>Спасибо за обращение!</h3>

@@ -3,7 +3,7 @@ import React from 'react';
 import Image from "next/image";
 import HomeProductCards from "@/components/homeProductSlider";
 import {Metadata} from "next";
-import ModalWindow from "@/components/modalWindow";
+import ModalPrice from "@/components/modalPrice";
 
 async function getData(slug: string) {
     const res = await fetch(`https://ifuw.ru/lotos/wp-json/api/product/${slug}`, {next: {revalidate: 0}})
@@ -76,8 +76,7 @@ const Page = async ({params}: { params: { slug: string } }) => {
                                 <li><b>Количество в упаковке</b>: {data[0].acf['kol-vo_v_upakovke']}</li>
                                 <li><b>Сорт</b>: {data[0].acf.sort}</li>
                             </ul>
-
-                            <ModalWindow prod={data[0].title}/>
+                            <ModalPrice/>
                         </div>
                     </div>
                 </div>
